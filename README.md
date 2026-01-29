@@ -1,12 +1,6 @@
 <p align="center" xmlns="http://www.w3.org/1999/html">
   <img src="./logo.png" alt="Freezervoir logo" width="300">
 </p>
-
-<p align="center">
-  <strong><em>Free the Freezer</em></strong>
-<br> Track what’s in your freezer, use what you own, and waste less.
-</p>
-
 <p align="center"> 🚧 <strong>Status:</strong> Planning/Early Development  </p>
 <p align="center"> 🏗️ <strong>Tech Stack:</strong> Java 21 • Spring Boot • Maven • Vaadin • MySQL </p>
 
