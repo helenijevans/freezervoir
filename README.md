@@ -41,7 +41,7 @@ The design supports future extensions, including notifications for "stagnant" it
 - Minimal UI prototype
 
 
-![current_state_ui.png](media/current_state_ui.png)
+![current_state_ui.png](media/ui_v0.png)
 
 ___
 ## ▶ Run Locally
