@@ -1,5 +1,5 @@
 <p align="center" xmlns="http://www.w3.org/1999/html">
-  <img src="./logo_cropped.png" alt="Freezervoir logo" width="300">
+  <img src="media/logo_cropped.png" alt="Freezervoir logo" width="300">
 </p>
 <p align="center"> 🚧 <strong>Status:</strong> Planning/Early Development  </p>
 <p align="center"> 🏗️ <strong>Tech Stack:</strong> Java 21 • Spring Boot • Maven • Vaadin • MySQL </p>
@@ -36,11 +36,21 @@ The design supports future extensions, including notifications for "stagnant" it
 - Usage analytics
 - AI-assisted meal suggestions
 
-## Author
+## Current State
 
-Helen I J  Evans  
-Project: Freezervoir  
-A personal project to automate and improve freezer inventory tracking.
+- Minimal UI prototype
 
+
+![current_state_ui.png](media/current_state_ui.png)
+
+___
+## ▶ Run Locally
+
+```bash
+git clone https://github.com/helenijevans/freezervoir.git
+cd freezervoir
+mvn spring-boot:run
+# open http://localhost:8080
+```
 
 
