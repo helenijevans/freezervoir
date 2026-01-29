@@ -1,5 +1,5 @@
 
-<img src="./logo.png" width="250">
+<img src="./logo_cropped.png" width="250">
 
 ## Work in Progress
 
