@@ -1,7 +1,5 @@
 
-
-<img src="./logo.png" width="300" style="float:left;">
-
+<img src="./logo.png" width="200">
 ## Work in Progress
 
 * kdkfk
