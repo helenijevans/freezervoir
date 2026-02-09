@@ -16,8 +16,8 @@ public class FreezerItems {
         @Column(name = "item_ID")
         private String itemId;
 
-        @Column(nullable = false)
-        private LocalDate date_added ;
+        @Column(nullable = false, name = "date_added")
+        private LocalDate dateAdded ;
 
         @Column
         private String notes;
