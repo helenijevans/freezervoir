@@ -41,6 +41,7 @@ The below table shows the initial planned stages of the project. These are subje
 | 10 | UX & Workflow Cleanup | Improve branding and overall UX, and refine the app → label workflow. | |
 | 11 | AI Enhancements | Suggest meals based on freezer contents. Replace manual data entry with camera-based capture. Use AI to suggest item descriptions and estimate realistic expiry dates. | |
 
+Project Task Board can be found [here](https://www.notion.so/3021d997b6f180658671d3fb19ca452c?v=3021d997b6f1804bbda3000c944dca9d&source=copy_link).
 ___
 ## ▶ Run Locally
 To use this project, you will need to do the following:
