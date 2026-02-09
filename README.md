@@ -39,7 +39,7 @@ The below table shows the initial planned stages of the project. These are subje
 | 8 | QR Code Generation & Scanning | Generate QR codes for new entries, integrate with the label maker workflow, and support scanning QR codes in-app to add and delete items from the database. |  |
 | 9 | Expiry Tracking | Notify when an item is approaching expiry (e.g. 1 year from date added). |  |
 | 10 | UX & Workflow Cleanup | Improve branding and overall UX, and refine the app → label workflow. | |
-| 11 | AI Enhancements | Suggest meals based on freezer contents. Replace manual data entry with camera-based capture. Use AI to suggest item descriptions and estimate realistic expiry dates instead of a fixed 1 year. | |
+| 11 | AI Enhancements | Suggest meals based on freezer contents. Replace manual data entry with camera-based capture. Use AI to suggest item descriptions and estimate realistic expiry dates. | |
 
 ___
 ## ▶ Run Locally
