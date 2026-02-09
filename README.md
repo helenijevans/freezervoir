@@ -1,7 +1,7 @@
 <p align="center" xmlns="http://www.w3.org/1999/html">
   <img src="media/logo_cropped.png" alt="Freezervoir logo" width="300">
 </p>
-<p align="center"> 🚧 <strong>Status:</strong> Early Development, Stage 1 (Complete)  </p>
+<p align="center"> 🚧 <strong>Status:</strong> Early Development, Stage 2  </p>
 <p align="center"> 🏗️ <strong>Tech Stack:</strong> Java 21 • Spring Boot • Maven • Vaadin • MySQL </p>
 
 ___
