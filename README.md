@@ -22,23 +22,6 @@ This incentivised the need for this project, which will migrate the current proc
 
 The design supports future extensions, including notifications for "stagnant" items and AI-assisted meal suggestions. The continued objective is to transform the freezer from a mysterious reservoir into an active part of reducing waste, household spending, and guesswork.
 
-
-
-## Roadmap
-
-### MVP:
-- Database-backed freezer inventory
-- Web UI for item tracking
-- QR scan → automatic record update
-
-### Planned:
-- Expiry and stagnation notifications
-- Usage analytics
-- AI-assisted meal suggestions
-
-## Current State
-
-- Simple UI showing grid layout of all items in your Freezer Items table
 ___
 ## ▶ Run Locally
 To use this project, you will need to do the following:
