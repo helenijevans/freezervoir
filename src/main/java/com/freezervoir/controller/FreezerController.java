@@ -12,11 +12,6 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor // can use this instead of needing @Autowired for service injection
 public class FreezerController {
-    @GetMapping("/api")
-    public String greeting() {
-        return "Hello";
-    }
-
     private final FreezerItemsService service;
 
     @GetMapping("/api/get_items")
