@@ -1,7 +1,7 @@
 <p align="center" xmlns="http://www.w3.org/1999/html">
   <img src="media/logo_cropped.png" alt="Freezervoir logo" width="300">
 </p>
-<p align="center"> 🚧 <strong>Status:</strong> Planning/Early Development  </p>
+<p align="center"> 🚧 <strong>Status:</strong> Early Development  </p>
 <p align="center"> 🏗️ <strong>Tech Stack:</strong> Java 21 • Spring Boot • Maven • Vaadin • MySQL </p>
 
 ___
@@ -38,19 +38,43 @@ The design supports future extensions, including notifications for "stagnant" it
 
 ## Current State
 
-- Minimal UI prototype
-
-
-![current_state_ui.png](media/ui_v0.png)
-
+- Simple UI showing grid layout of all items in your Freezer Items table
 ___
 ## ▶ Run Locally
+To use this project, you will need to do the following:
+### Prerequisites
+
+- Java 21 installed and set as your active JDK 
+- Maven (or use the Maven Wrapper included in the project)
+- MySQL running locally
+
+### Steps
+
+1. Clone the repository
 
 ```bash
-git clone https://github.com/helenijevans/freezervoir.git
+git clone git@github.com:helenijevans/freezervoir.git
 cd freezervoir
-mvn spring-boot:run
-# open http://localhost:8080
 ```
 
 
+2. Set up the database 
+   - Start your MySQL server 
+   - Run the [provided SQL setup script](src/main/resources/init_db.sql) to create the freezer_items table 
+   - Use SQL commands to insert your own data into freezer_items 
+
+3. Configure database credentials 
+   - Either:
+     - Set environment variables for MYSQL_USERNAME and MYSQL_PASSWORD 
+     - Edit `src/main/resources/application.yaml` and set your username/password directly. 
+4. Run the application 
+   - From IDE: Open the project → Run the Application class 
+   - From the terminal: ```mvn spring-boot:run```
+5. Open in browser at http://localhost:8080
+
+### Result
+You should see:
+- The Freezervoir header
+- A grid listing your current freezer items from the database
+
+![current_state_ui.png](media/ui_v1.1.png)
