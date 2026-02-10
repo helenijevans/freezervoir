@@ -1,6 +1,7 @@
 package com.freezervoir.service;
 
 import com.freezervoir.entity.FreezerItems;
+import com.freezervoir.exception.ItemNotFoundException;
 import com.freezervoir.repository.FreezerItemsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -23,5 +24,12 @@ public class FreezerItemsService {
         return repo.findById(itemId)
                 .orElseThrow(() -> new ResponseStatusException(
                         HttpStatus.NOT_FOUND, "Item not found: " + itemId));
+    }
+
+    public void deleteById(String id) throws ItemNotFoundException {
+        if (!repo.existsById(id)) {
+            throw new ItemNotFoundException(id);
+        }
+        repo.deleteById(id);
     }
 }
