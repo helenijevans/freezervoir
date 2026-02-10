@@ -1,7 +1,7 @@
 <p align="center" xmlns="http://www.w3.org/1999/html">
   <img src="media/logo_cropped.png" alt="Freezervoir logo" width="300">
 </p>
-<p align="center"> 🚧 <strong>Status:</strong> Early Development, Stage 1 (Complete)  </p>
+<p align="center"> 🚧 <strong>Status:</strong> Early Development, Stage 2  </p>
 <p align="center"> 🏗️ <strong>Tech Stack:</strong> Java 21 • Spring Boot • Maven • Vaadin • MySQL </p>
 
 ___
@@ -27,19 +27,20 @@ ___
 ## Roadmap
 The below table shows the initial planned stages of the project. These are subject to change as the project evolves.
 
-| Stage | Title | Description | Status |
-|------:|-------|-------------|--------|
-| 1 | View Current Freezer Items | Created a MySQL representation of the current Google Sheet data, added JPA architecture to read from the database, and added frontend logic to display items in a table. | ✅  |
-| 2 | CRUD Basics | Add frontend functionality to add and delete items, validate these actions, and communicate correctly with the backend. After this stage, the original system will be fully replicated. |  |
-| 3 | QR Integration (Core Feature) | Update QR codes to point to delete endpoints. The reason the project was started. | |
-| 4 | UI Improvements | Show the number of current items and improve the visual layout and clarity of the UI. | |
-| 5 | Deployment | Deploy the application so the server runs continuously. | |
-| 6 | Data Model Improvements | Change IDs to be auto-generated and add a description field. |  |
-| 7 | App-Style Frontend | Improve the overall UI/UX and support viewing all items in a cleaner, more app-like interface. | |
-| 8 | QR Code Generation & Scanning | Generate QR codes for new entries, integrate with the label maker workflow, and support scanning QR codes in-app to add and delete items from the database. |  |
-| 9 | Expiry Tracking | Notify when an item is approaching expiry (e.g. 1 year from date added). |  |
-| 10 | UX & Workflow Cleanup | Improve branding and overall UX, and refine the app → label workflow. | |
-| 11 | AI Enhancements | Suggest meals based on freezer contents. Replace manual data entry with camera-based capture. Use AI to suggest item descriptions and estimate realistic expiry dates. | |
+| Stage | Title                         | Description | Status |
+|------:|-------------------------------|-------------|--------|
+|     1 | View Current Freezer Items    | Created a MySQL representation of the current Google Sheet data, added JPA architecture to read from the database, and added frontend logic to display items in a table. | ✅      |
+|     2 | CRUD Basics                   | Add frontend functionality to add and delete items, validate these actions, and communicate correctly with the backend. After this stage, the original system will be fully replicated. | 💻     |
+|     3 | Filters & Sorting             | To make deletion smoother, add inbuilt filter for item IDs, add sorting by date |        | 
+|     4 | QR Integration (Core Feature) | Update QR codes to point to delete endpoints. The reason the project was started. |        |
+|     5 | UI Improvements               | Show the number of current items and improve the visual layout and clarity of the UI. |        |
+|     6 | Deployment                    | Deploy the application so the server runs continuously. |        |
+|     7 | Data Model Improvements       | Change IDs to be auto-generated and add a description field. |        |
+|     8 | App-Style Frontend            | Improve the overall UI/UX and support viewing all items in a cleaner, more app-like interface. |        |
+|     9 | QR Code Generation & Scanning | Generate QR codes for new entries, integrate with the label maker workflow, and support scanning QR codes in-app to add and delete items from the database. |        |
+|    10 | Expiry Tracking               | Notify when an item is approaching expiry (e.g. 1 year from date added). |        |
+|    11 | UX & Workflow Cleanup         | Improve branding and overall UX, and refine the app → label workflow. |        |
+|    12 | AI Enhancements               | Suggest meals based on freezer contents. Replace manual data entry with camera-based capture. Use AI to suggest item descriptions and estimate realistic expiry dates. |        |
 
 ___
 ## ▶ Run Locally
@@ -78,5 +79,6 @@ cd freezervoir
 You should see:
 - The Freezervoir header
 - A grid listing your current freezer items from the database
+- Delete functionality including confirmation pop-up
 
-![current_state_ui.png](media/ui_v1.1.png)
+![current_state_ui.png](media/ui_v1.2.png)

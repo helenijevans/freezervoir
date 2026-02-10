@@ -10,6 +10,8 @@ import com.vaadin.flow.component.confirmdialog.ConfirmDialog;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -31,7 +33,14 @@ public class MainView extends AppLayout {
 
     private void createHeader() {
         H1 logo = new H1("Freezervoir ❄️");
-        addToNavbar(logo);
+        HorizontalLayout header = new HorizontalLayout(logo);
+        header.setDefaultVerticalComponentAlignment(
+                FlexComponent.Alignment.CENTER
+        );
+        header.setPadding(true);
+        header.setSpacing(false);
+
+        addToNavbar(header);
     }
 
     private Component createContent() {
@@ -65,7 +74,7 @@ public class MainView extends AppLayout {
 
 
             return delete;
-        }).setHeader("").setAutoWidth(true);
+        }).setHeader("").setWidth("100px").setFlexGrow(0);
 
         grid.setItems(repository.findAll());
         grid.setSizeFull();
