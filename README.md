@@ -83,3 +83,6 @@ You should see:
 - Delete functionality including confirmation pop-up
 
 ![current_state_ui.png](media/ui_v1.2.png)
+
+### Testing
+To run the project's test suite, use the terminal command ```mvn test```
