@@ -1,16 +1,16 @@
 package com.freezervoir.controller;
 
+import com.freezervoir.entity.FreezerItems;
 import com.freezervoir.exception.ItemNotFoundException;
 import com.freezervoir.service.FreezerItemsService;
+import org.springframework.web.bind.annotation.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor // can use this instead of needing @Autowired for service injection
+@RequestMapping("/api")
 public class FreezerController {
      private final FreezerItemsService service;
 
@@ -29,6 +29,17 @@ public class FreezerController {
 
          }
      }
+
+     @PostMapping("/items")
+     public ResponseEntity<String> addItem(@RequestBody FreezerItems newItem) {
+
+         FreezerItems saved = service.saveItem(newItem);
+
+         return ResponseEntity
+                 .status(HttpStatus.CREATED)
+                 .body(String.format("%s successfully added", saved.getItemId()));
+     }
+
 
 
 
