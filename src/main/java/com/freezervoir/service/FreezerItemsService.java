@@ -14,22 +14,28 @@ import java.util.List;
 @RequiredArgsConstructor
 public class FreezerItemsService {
 
-    private final FreezerItemsRepository repo;
+    private final FreezerItemsRepository repository;
 
     public List<FreezerItems> getAll() {
-        return repo.findAll();
+        return repository.findAll();
     }
 
     public FreezerItems getById(String itemId) {
-        return repo.findById(itemId)
+        return repository.findById(itemId)
                 .orElseThrow(() -> new ResponseStatusException(
                         HttpStatus.NOT_FOUND, "Item not found: " + itemId));
     }
 
+    public FreezerItems saveItem(FreezerItems newItem){
+        return repository.save(newItem);
+    }
+
     public void deleteById(String id) throws ItemNotFoundException {
-        if (!repo.existsById(id)) {
+        if (!repository.existsById(id)) {
             throw new ItemNotFoundException(id);
         }
-        repo.deleteById(id);
+        repository.deleteById(id);
     }
+
+
 }
