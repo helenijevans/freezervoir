@@ -25,7 +25,7 @@ The design supports future extensions, including notifications for "stagnant" it
 
 ___
 ## Roadmap
-The below table shows the initial planned stages of the project. These are subject to change as the project evolves.
+The below table shows the planned stages of the project. These are subject to change as the project evolves.
 
 | Stage | Title                               | Description                                                                                                                                                                                                                  | Status |
 |------:|-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|
