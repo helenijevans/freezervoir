@@ -7,12 +7,16 @@ import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.confirmdialog.ConfirmDialog;
+import com.vaadin.flow.component.datepicker.DatePicker;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import jakarta.annotation.PostConstruct;
@@ -79,7 +83,61 @@ public class MainView extends AppLayout {
         grid.setItems(repository.findAll());
         grid.setSizeFull();
 
-        VerticalLayout wrapper = new VerticalLayout(grid);
+        Button addButton = new Button("Add Item", VaadinIcon.PLUS.create());
+        addButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+
+        Dialog formDialog = new Dialog();
+
+        TextField itemIdField = new TextField("ID");
+        TextField notesField = new TextField("Notes");
+        DatePicker dateAddedField = new DatePicker("Date Added");
+
+        Binder<FreezerItems> binder = new Binder<>(FreezerItems.class);
+
+        binder.forField(itemIdField)
+                .asRequired("ID required")
+                .bind(FreezerItems::getItemId, FreezerItems::setItemId);
+
+        binder.forField(notesField)
+                .bind(FreezerItems::getNotes, FreezerItems::setNotes);
+
+        binder.forField(dateAddedField)
+                .asRequired("Date required")
+                .bind(FreezerItems::getDateAdded, FreezerItems::setDateAdded);
+
+        Button save = new Button("Save");
+        save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+
+        Button cancel = new Button("Cancel");
+        cancel.addClickListener(e -> formDialog.close());
+
+        save.addClickListener(e -> {
+            FreezerItems item = new FreezerItems();
+
+            if (binder.writeBeanIfValid(item)) {
+                repository.save(item);
+                grid.setItems(repository.findAll());
+                formDialog.close();
+            }
+        });
+
+        HorizontalLayout buttons = new HorizontalLayout(save, cancel);
+        VerticalLayout formLayout = new VerticalLayout(
+                itemIdField,
+                notesField,
+                dateAddedField,
+                buttons
+        );
+
+        formDialog.add(formLayout);
+
+        addButton.addClickListener(e -> {
+            binder.readBean(null);
+            formDialog.open();
+        });
+
+
+        VerticalLayout wrapper = new VerticalLayout(addButton, grid);
         wrapper.setPadding(true);
         wrapper.setSpacing(true);
         wrapper.setSizeFull();

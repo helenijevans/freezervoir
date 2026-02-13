@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Table(name = "freezer_items")
 @Getter
 @Setter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @AllArgsConstructor
 public class FreezerItems {
         @Id
