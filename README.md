@@ -1,7 +1,7 @@
 <p align="center" xmlns="http://www.w3.org/1999/html">
   <img src="media/logo_cropped.png" alt="Freezervoir logo" width="300">
 </p>
-<p align="center"> 🚧 <strong>Status:</strong> Early Development, Stage 2  </p>
+<p align="center"> 🚧 <strong>Status:</strong> Early Development, Stage 2 (Completed) </p>
 <p align="center"> 🏗️ <strong>Tech Stack:</strong> Java 21 • Spring Boot • Maven • Vaadin • MySQL </p>
 
 ___
@@ -30,7 +30,7 @@ The below table shows the planned stages of the project. These are subject to ch
 | Stage | Title                               | Description                                                                                                                                                                                                                    | Status |
 |------:|-------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|
 |     1 | View Current Freezer Items          | Created a MySQL representation of the current Google Sheet data, added JPA architecture to read from the database, and added frontend logic to display items in a table.                                                       | ✅      |
-|     2 | CRUD Basics                         | Add frontend functionality to add and delete items, validate these actions, and communicate correctly with the backend. After this stage, the original system will be fully replicated.                                        | 💻     |
+|     2 | CRUD Basics                         | Add frontend functionality to add and delete items, validate these actions, and communicate correctly with the backend. After this stage, the original system will be fully replicated.                                        | ✅     |
 |     3 | QR-Driven Item Pages                | Generate QR codes that point to item detail pages, allowing delete actions via the UI. Will also see removal of Controller files/direct endpoints to prevent accidental data modification. (Initial Goal for Project Achieved) |        |
 |     4 | Schema Migration & Physical Rollout | Replace the existing table with an improved schema and migrate all legacy data. Implement ID generation, assign QR codes to all items, and relabel every freezer item to align the real-world inventory with the new system.   |        |
 |     5 | UI Improvements + Notes Feature     | Add filters and sorting, with default order earliest → latest. Display item count and allow editing of status and notes on detail pages. Improve UI layout and clarity.                                                        |        |
@@ -79,8 +79,10 @@ You should see:
 - The Freezervoir header
 - A grid listing your current freezer items from the database
 - Delete functionality including confirmation pop-up
+- Add functionality for new freezer items
 
-![current_state_ui.png](media/ui_v1.2.png)
+![current_state_ui.png](media/ui_v1.3.1.png)
+![current_state_ui_modal.png](media/ui_v1.3.2.png)
 
 ### Testing
 To run the project's test suite, use the terminal command ```mvn test```
