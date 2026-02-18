@@ -1,7 +1,7 @@
 <p align="center" xmlns="http://www.w3.org/1999/html">
   <img src="media/logo_cropped.png" alt="Freezervoir logo" width="300">
 </p>
-<p align="center"> 🚧 <strong>Status:</strong> In Development, Stage 3 </p>
+<p align="center"> 🚧 <strong>Status:</strong> In Development </p>
 <p align="center"> 🏗️ <strong>Tech Stack:</strong> Java 21 • Spring Boot • Maven • Vaadin • MySQL </p>
 
 ___
@@ -31,7 +31,7 @@ The below table shows the planned stages of the project. These are subject to ch
 |------:|-------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|
 |     1 | View Current Freezer Items          | Created a MySQL representation of the current Google Sheet data, added JPA architecture to read from the database, and added frontend logic to display items in a table.                                                       | ✅      |
 |     2 | CRUD Basics                         | Add frontend functionality to add and delete items, validate these actions, and communicate correctly with the backend. After this stage, the original system will be fully replicated.                                        | ✅     |
-|     3 | QR-Driven Item Pages                | Generate QR codes that point to item detail pages, allowing delete actions via the UI. Will also see removal of Controller files/direct endpoints to prevent accidental data modification. (Initial Goal for Project Achieved) | 💻     |
+|     3 | QR-Driven Item Pages                | Generate QR codes that point to item detail pages, allowing delete actions via the UI. Will also see removal of Controller files/direct endpoints to prevent accidental data modification. (Initial Goal for Project Achieved) | ✅     |
 |     4 | Schema Migration & Physical Rollout | Replace the existing table with an improved schema and migrate all legacy data. Implement ID generation, assign QR codes to all items, and relabel every freezer item to align the real-world inventory with the new system.   |        |
 |     5 | UI Improvements + Notes Feature     | Add filters and sorting, with default order earliest → latest. Display item count and allow editing of status and notes on all pages. Improve UI layout and clarity.                                                           |        |
 |     6 | Deployment                          | Deploy the application so the server runs continuously.                                                                                                                                                                        |        | 
@@ -83,12 +83,11 @@ You should see:
   - Including delete and edit notes functionality
   - 404 Page if Item doesn't exist
 
-| Page            | Expected View |
-|-----------------|---------------|
-| Root            | ![current_state_ui.png](media/ui_v1.4.1.png)        |
-| /items/{itemID} | ![current_state_ui_modal.png](media/ui_v1.4.2.png)          |
-| /404            | ![current_state_ui_modal.png](media/ui_v1.4.3.png)          |
-
+| Page | Expected View                                            |
+|------|----------------------------------------------------------|
+| Root | <img src="media/ui_v1.4.1.png" height="155" width="400"> |
+| /items/{itemID} | <img src="media/ui_v1.4.2.png" height="200" width="200"> |
+| /404 | <img src="media/ui_v1.4.3.png" height="175" width="200"> |
 
 
 ### Testing
