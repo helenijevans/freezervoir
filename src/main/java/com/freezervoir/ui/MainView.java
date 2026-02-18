@@ -1,7 +1,7 @@
 package com.freezervoir.ui;
 
 import com.freezervoir.entity.FreezerItems;
-import com.freezervoir.repository.FreezerItemsRepository;
+import com.freezervoir.service.FreezerItemsService;
 import com.freezervoir.ui.components.RemoveButtonFactory;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
@@ -24,7 +24,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MainView extends VerticalLayout {
 
-    private final FreezerItemsRepository repository;
+    private final FreezerItemsService service;
+
 
     @PostConstruct
     private void init() {
@@ -43,12 +44,12 @@ public class MainView extends VerticalLayout {
         grid.addComponentColumn(item ->
                 RemoveButtonFactory.create(
                         item,
-                        repository,
-                        () -> grid.setItems(repository.findAll())
+                        service,
+                        () -> grid.setItems(service.getAll())
                 )
         ).setHeader("").setWidth("200px").setFlexGrow(0);
 
-        grid.setItems(repository.findAll());
+        grid.setItems(service.getAll());
         grid.setSizeFull();
 
         grid.addItemClickListener(event ->
@@ -89,8 +90,8 @@ public class MainView extends VerticalLayout {
             FreezerItems item = new FreezerItems();
 
             if (binder.writeBeanIfValid(item)) {
-                repository.save(item);
-                grid.setItems(repository.findAll());
+                service.saveItem(item);
+                grid.setItems(service.getAll());
                 formDialog.close();
             }
         });

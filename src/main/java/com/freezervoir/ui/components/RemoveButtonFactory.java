@@ -1,7 +1,8 @@
 package com.freezervoir.ui.components;
 
 import com.freezervoir.entity.FreezerItems;
-import com.freezervoir.repository.FreezerItemsRepository;
+import com.freezervoir.exception.ItemNotFoundException;
+import com.freezervoir.service.FreezerItemsService;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.confirmdialog.ConfirmDialog;
@@ -11,7 +12,7 @@ public class RemoveButtonFactory {
 
     public static Button create(
             FreezerItems item,
-            FreezerItemsRepository repository,
+            FreezerItemsService service,
             Runnable afterRemove
     ) {
         Button remove = new Button("Remove Item", VaadinIcon.TRASH.create());
@@ -38,7 +39,11 @@ public class RemoveButtonFactory {
             dialog.setCloseOnEsc(true);
 
             dialog.addConfirmListener(ev -> {
-                repository.delete(item);
+                try {
+                    service.deleteById(item.getItemId());
+                } catch (ItemNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                }
                 afterRemove.run();
             });
 

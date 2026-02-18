@@ -1,7 +1,9 @@
 package com.freezervoir.ui;
 
 import com.freezervoir.entity.FreezerItems;
+import com.freezervoir.exception.ItemNotFoundException;
 import com.freezervoir.repository.FreezerItemsRepository;
+import com.freezervoir.service.FreezerItemsService;
 import com.freezervoir.ui.components.RemoveButtonFactory;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H1;
@@ -18,7 +20,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ItemView extends VerticalLayout implements BeforeEnterObserver {
 
-    private final FreezerItemsRepository repository;
+    private final FreezerItemsService service;
 
     private FreezerItems item;
 
@@ -37,15 +39,16 @@ public class ItemView extends VerticalLayout implements BeforeEnterObserver {
             return;
         }
 
-        Optional<FreezerItems> optionalItem = repository.findById(id);
 
-        if (optionalItem.isEmpty()) {
+        try {
+            item = service.getById(id);
+        } catch (ItemNotFoundException e) {
             event.forwardTo(MissingItemView.class);
             return;
         }
 
-        item = optionalItem.get();
         buildLayout();
+
     }
 
     private void buildLayout() {
@@ -88,7 +91,7 @@ public class ItemView extends VerticalLayout implements BeforeEnterObserver {
             if (!updated.equals(oldValue)) {
                 item.setNotes(updated.isEmpty() ? null : updated);
 
-                repository.save(item);
+                service.saveItem(item);
 
                 saveFeedback.setText("Saved ✓");
 
@@ -104,7 +107,7 @@ public class ItemView extends VerticalLayout implements BeforeEnterObserver {
 
         Button deleteButton = RemoveButtonFactory.create(
                 item,
-                repository,
+                service,
                 () -> getUI().ifPresent(ui -> ui.navigate(""))
         );
 
