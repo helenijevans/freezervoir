@@ -85,9 +85,9 @@ You should see:
 
 | Page | Expected View                                            |
 |------|----------------------------------------------------------|
-| Root | <img src="media/ui_v1.4.1.png" height="155" width="400"> |
-| /items/{itemID} | <img src="media/ui_v1.4.2.png" height="200" width="200"> |
-| /404 | <img src="media/ui_v1.4.3.png" height="175" width="200"> |
+| Root | <br><img src="media/ui_v1.4.1.png" height="155" width="400"><br> |
+| /items/{itemID} | <br><img src="media/ui_v1.4.2.png" height="200" width="200"><br> |
+| /404 | <br><img src="media/ui_v1.4.3.png" height="175" width="200"><br> |
 
 
 ### Testing
