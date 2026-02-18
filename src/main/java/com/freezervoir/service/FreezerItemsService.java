@@ -4,9 +4,7 @@ import com.freezervoir.entity.FreezerItems;
 import com.freezervoir.exception.ItemNotFoundException;
 import com.freezervoir.repository.FreezerItemsRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -20,10 +18,10 @@ public class FreezerItemsService {
         return repository.findAll();
     }
 
-    public FreezerItems getById(String itemId) {
+    public FreezerItems getById(String itemId) throws ItemNotFoundException {
         return repository.findById(itemId)
-                .orElseThrow(() -> new ResponseStatusException(
-                        HttpStatus.NOT_FOUND, "Item not found: " + itemId));
+                .orElseThrow(() -> new ItemNotFoundException(
+                         "Item not found: " + itemId));
     }
 
     public FreezerItems saveItem(FreezerItems newItem){
