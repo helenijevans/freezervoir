@@ -1,8 +1,8 @@
 package com.freezervoir.service;
 
-import com.freezervoir.entity.FreezerItems;
+import com.freezervoir.entity.LegacyFreezerItems;
 import com.freezervoir.exception.ItemNotFoundException;
-import com.freezervoir.repository.FreezerItemsRepository;
+import com.freezervoir.repository.LegacyFreezerItemsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,21 +10,21 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class FreezerItemsService {
+public class LegacyFreezerItemsService {
 
-    private final FreezerItemsRepository repository;
+    private final LegacyFreezerItemsRepository repository;
 
-    public List<FreezerItems> getAll() {
+    public List<LegacyFreezerItems> getAll() {
         return repository.findAll();
     }
 
-    public FreezerItems getById(String itemId) throws ItemNotFoundException {
+    public LegacyFreezerItems getById(String itemId) throws ItemNotFoundException {
         return repository.findById(itemId)
                 .orElseThrow(() -> new ItemNotFoundException(
                          "Item not found: " + itemId));
     }
 
-    public FreezerItems saveItem(FreezerItems newItem){
+    public LegacyFreezerItems saveItem(LegacyFreezerItems newItem){
         return repository.save(newItem);
     }
 

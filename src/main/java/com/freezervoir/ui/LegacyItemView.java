@@ -1,9 +1,8 @@
 package com.freezervoir.ui;
 
-import com.freezervoir.entity.FreezerItems;
+import com.freezervoir.entity.LegacyFreezerItems;
 import com.freezervoir.exception.ItemNotFoundException;
-import com.freezervoir.repository.FreezerItemsRepository;
-import com.freezervoir.service.FreezerItemsService;
+import com.freezervoir.service.LegacyFreezerItemsService;
 import com.freezervoir.ui.components.RemoveButtonFactory;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H1;
@@ -13,16 +12,14 @@ import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.router.*;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Optional;
-
-@Route(value = "items/:id", layout = MainLayout.class)
+@Route(value = "legacy/items/:id", layout = MainLayout.class)
 @PageTitle("Item Details")
 @RequiredArgsConstructor
-public class ItemView extends VerticalLayout implements BeforeEnterObserver {
+public class LegacyItemView extends VerticalLayout implements BeforeEnterObserver {
 
-    private final FreezerItemsService service;
+    private final LegacyFreezerItemsService service;
 
-    private FreezerItems item;
+    private LegacyFreezerItems item;
 
     private final H1 title = new H1();
     private final Span dateAdded = new Span();
@@ -35,7 +32,7 @@ public class ItemView extends VerticalLayout implements BeforeEnterObserver {
         String id = event.getRouteParameters().get("id").orElse(null);
 
         if (id == null) {
-            event.forwardTo(MainView.class);
+            event.forwardTo(LegacyMainView.class);
             return;
         }
 

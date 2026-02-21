@@ -1,8 +1,8 @@
 package com.freezervoir.ui.components;
 
-import com.freezervoir.entity.FreezerItems;
+import com.freezervoir.entity.LegacyFreezerItems;
 import com.freezervoir.exception.ItemNotFoundException;
-import com.freezervoir.service.FreezerItemsService;
+import com.freezervoir.service.LegacyFreezerItemsService;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.confirmdialog.ConfirmDialog;
@@ -11,8 +11,8 @@ import com.vaadin.flow.component.icon.VaadinIcon;
 public class RemoveButtonFactory {
 
     public static Button create(
-            FreezerItems item,
-            FreezerItemsService service,
+            LegacyFreezerItems item,
+            LegacyFreezerItemsService service,
             Runnable afterRemove
     ) {
         Button remove = new Button("Remove Item", VaadinIcon.TRASH.create());

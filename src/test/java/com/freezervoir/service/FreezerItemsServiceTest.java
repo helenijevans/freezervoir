@@ -1,8 +1,8 @@
 package com.freezervoir.service;
 
-import com.freezervoir.entity.FreezerItems;
+import com.freezervoir.entity.LegacyFreezerItems;
 import com.freezervoir.exception.ItemNotFoundException;
-import com.freezervoir.repository.FreezerItemsRepository;
+import com.freezervoir.repository.LegacyFreezerItemsRepository;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
@@ -23,10 +23,10 @@ import static org.mockito.Mockito.*;
 class FreezerItemsServiceTest {
 
     @Mock
-    FreezerItemsRepository repository;
+    LegacyFreezerItemsRepository repository;
 
     @InjectMocks
-    FreezerItemsService service;
+    LegacyFreezerItemsService service;
 
     @Test
     void deleteById_existingItem_deletes() throws ItemNotFoundException {
@@ -47,17 +47,17 @@ class FreezerItemsServiceTest {
 
     @Test
     void testAddItem_valid() {
-        FreezerItems item = new FreezerItems(
+        LegacyFreezerItems item = new LegacyFreezerItems(
                 "SalmonPiece02",
                 LocalDate.of(2025, 1, 8),
                 "THROW"
         );
 
         // Mock repository to return the object it receives
-        when(repository.save(any(FreezerItems.class)))
+        when(repository.save(any(LegacyFreezerItems.class)))
                 .thenAnswer(invocation -> invocation.getArgument(0));
 
-        FreezerItems savedItem = service.saveItem(item);
+        LegacyFreezerItems savedItem = service.saveItem(item);
 
         System.out.println("Saved item: " + savedItem); // should not be null
 
@@ -68,7 +68,7 @@ class FreezerItemsServiceTest {
 
     @Test
     void testAddItem_missingDate() {
-        FreezerItems item = new FreezerItems(
+        LegacyFreezerItems item = new LegacyFreezerItems(
                 "SalmonPiece04",
                 null, // missing date
                 "THROW"
@@ -76,7 +76,7 @@ class FreezerItemsServiceTest {
 
         try (ValidatorFactory factory = Validation.buildDefaultValidatorFactory()) {
             Validator validator = factory.getValidator();
-            Set<ConstraintViolation<FreezerItems>> violations = validator.validate(item);
+            Set<ConstraintViolation<LegacyFreezerItems>> violations = validator.validate(item);
 
             assertFalse(violations.isEmpty());
         }
