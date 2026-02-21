@@ -1,7 +1,7 @@
 package com.freezervoir.ui;
 
-import com.freezervoir.entity.FreezerItems;
-import com.freezervoir.service.FreezerItemsService;
+import com.freezervoir.entity.LegacyFreezerItems;
+import com.freezervoir.service.LegacyFreezerItemsService;
 import com.freezervoir.ui.components.RemoveButtonFactory;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
@@ -19,12 +19,12 @@ import com.vaadin.flow.router.Route;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 
-@Route(value = "", layout = MainLayout.class)
+@Route(value = "/legacy", layout = MainLayout.class)
 @PageTitle("Freezervoir")
 @RequiredArgsConstructor
-public class MainView extends VerticalLayout {
+public class LegacyMainView extends VerticalLayout {
 
-    private final FreezerItemsService service;
+    private final LegacyFreezerItemsService service;
 
 
     @PostConstruct
@@ -35,11 +35,11 @@ public class MainView extends VerticalLayout {
         add(createContent());
     }
     private Component createContent() {
-        Grid<FreezerItems> grid = new Grid<>(FreezerItems.class, false);
+        Grid<LegacyFreezerItems> grid = new Grid<>(LegacyFreezerItems.class, false);
 
-        grid.addColumn(FreezerItems::getItemId).setHeader("ID").setAutoWidth(true);
-        grid.addColumn(FreezerItems::getDateAdded).setHeader("Date Added").setAutoWidth(true);
-        grid.addColumn(FreezerItems::getNotes).setHeader("Notes").setAutoWidth(true);
+        grid.addColumn(LegacyFreezerItems::getItemId).setHeader("ID").setAutoWidth(true);
+        grid.addColumn(LegacyFreezerItems::getDateAdded).setHeader("Date Added").setAutoWidth(true);
+        grid.addColumn(LegacyFreezerItems::getNotes).setHeader("Notes").setAutoWidth(true);
 
         grid.addComponentColumn(item ->
                 RemoveButtonFactory.create(
@@ -54,7 +54,7 @@ public class MainView extends VerticalLayout {
 
         grid.addItemClickListener(event ->
                 getUI().ifPresent(ui ->
-                        ui.navigate("items/" + event.getItem().getItemId())
+                        ui.navigate("legacy/items/" + event.getItem().getItemId())
                 )
         );
 
@@ -67,18 +67,18 @@ public class MainView extends VerticalLayout {
         TextField notesField = new TextField("Notes");
         DatePicker dateAddedField = new DatePicker("Date Added");
 
-        Binder<FreezerItems> binder = new Binder<>(FreezerItems.class);
+        Binder<LegacyFreezerItems> binder = new Binder<>(LegacyFreezerItems.class);
 
         binder.forField(itemIdField)
                 .asRequired("ID required")
-                .bind(FreezerItems::getItemId, FreezerItems::setItemId);
+                .bind(LegacyFreezerItems::getItemId, LegacyFreezerItems::setItemId);
 
         binder.forField(notesField)
-                .bind(FreezerItems::getNotes, FreezerItems::setNotes);
+                .bind(LegacyFreezerItems::getNotes, LegacyFreezerItems::setNotes);
 
         binder.forField(dateAddedField)
                 .asRequired("Date required")
-                .bind(FreezerItems::getDateAdded, FreezerItems::setDateAdded);
+                .bind(LegacyFreezerItems::getDateAdded, LegacyFreezerItems::setDateAdded);
 
         Button save = new Button("Save");
         save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
@@ -87,7 +87,7 @@ public class MainView extends VerticalLayout {
         cancel.addClickListener(e -> formDialog.close());
 
         save.addClickListener(e -> {
-            FreezerItems item = new FreezerItems();
+            LegacyFreezerItems item = new LegacyFreezerItems();
 
             if (binder.writeBeanIfValid(item)) {
                 service.saveItem(item);

@@ -7,12 +7,12 @@ import java.time.LocalDate;
 
 
 @Entity
-@Table(name = "freezer_items")
+@Table(name = "legacy_freezer_items")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class FreezerItems {
+public class LegacyFreezerItems {
         @Id
         @Column(name = "item_ID")
         @NotBlank(message = "ID cannot be blank")
