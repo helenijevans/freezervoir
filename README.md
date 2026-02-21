@@ -51,6 +51,7 @@ To use this project, you will need to do the following:
 - MySQL running locally
 
 ### Steps
+The below instructions apply to the legacy architecture as the new framework is still in development.
 
 1. Clone the repository
 
@@ -62,8 +63,8 @@ cd freezervoir
 
 2. Set up the database 
    - Start your MySQL server 
-   - Run the [provided SQL setup script](src/main/resources/init_db.sql) to create the freezer_items table 
-   - Use SQL commands to insert your own data into freezer_items 
+   - Run the [provided SQL setup script](src/main/resources/init_db.sql) to create the legacy_freezer_items table 
+   - Use SQL commands to insert your own data into legacy_freezer_items 
 
 3. Configure database credentials 
    - Either:
@@ -72,7 +73,7 @@ cd freezervoir
 4. Run the application 
    - From IDE: Open the project → Run the Application class 
    - From the terminal: ```mvn spring-boot:run```
-5. Open in browser at http://localhost:8080
+5. Open in browser at http://localhost:8080/legacy
 
 ### Result
 You should see:
